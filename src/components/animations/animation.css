@@ -1,0 +1,64 @@
+@keyframes twinkling {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes move-stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    0 0 2px #fff,
+    100px 200px 2px #fff,
+    200px 400px 2px #fff,
+    300px 600px 2px #fff,
+    400px 800px 2px #fff,
+    500px 1000px 2px #fff,
+    600px 1200px 2px #fff,
+    700px 1400px 2px #fff,
+    800px 1600px 2px #fff,
+    900px 1800px 2px #fff;
+  animation: move-stars 50s linear infinite, twinkling 2s infinite;
+}
+
+.stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    0 0 3px #fff,
+    150px 300px 3px #fff,
+    300px 600px 3px #fff,
+    450px 900px 3px #fff,
+    600px 1200px 3px #fff,
+    750px 1500px 3px #fff,
+    900px 1800px 3px #fff,
+    1050px 2100px 3px #fff,
+    1200px 2400px 3px #fff,
+    1350px 2700px 3px #fff;
+  animation: move-stars 100s linear infinite, twinkling 3s infinite;
+}
+
+.stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    0 0 4px #fff,
+    200px 400px 4px #fff,
+    400px 800px 4px #fff,
+    600px 1200px 4px #fff,
+    800px 1600px 4px #fff,
+    1000px 2000px 4px #fff,
+    1200px 2400px 4px #fff,
+    1400px 2800px 4px #fff,
+    1600px 3200px 4px #fff,
+    1800px 3600px 4px #fff;
+  animation: move-stars 150s linear infinite, twinkling 4s infinite;
+}

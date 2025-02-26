@@ -57,7 +57,7 @@ export const ProjectsSection = () => {
                   <div className="relative overflow-hidden rounded-t-lg">
                     <AspectRatio ratio={16 / 9}>
                       <Image
-                        src={project.image}
+                        src={""}
                         alt={project.title}
                         fill
                         className="object-cover"

@@ -10,20 +10,19 @@ import { ContactSection } from "@/components/sections/contact";
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
+  if (loading) {
+    return <SunLoaders />;
+  }
 
   return (
     <main className="relative overflow-hidden">
-      <SunLoaders />
       <HeroSection />
       <ServicesSection />
       <ExpertiseSection />

@@ -124,7 +124,7 @@ const SunLoaders = () => {
       }),
       fill: "#ffa555",
       strokeWidth: 0.5,
-      duration: "5s",
+      duration: "2s",
     },
     {
       id: "sun10",
@@ -143,81 +143,84 @@ const SunLoaders = () => {
   ];
 
   return (
-    <div className="p-8 bg-amber-50">
-      <h1 className="text-2xl font-bold text-amber-800 mb-6 text-center">
-        Sun & Star Loaders
-      </h1>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-        {sunDesigns.map((sun) => (
-          <div key={sun.id} className="flex items-center justify-center">
-            <svg
-              viewBox={sun.viewBox}
-              width="100"
-              height="100"
-              className="animate-spin-custom"
-              style={{
-                animationDuration: sun.duration,
-                animationTimingFunction: "linear",
-                animationIterationCount: "infinite",
-              }}
-            >
-              {/* For sun designs with a single path */}
-              {sun.path && (
-                <path
-                  d={sun.path}
-                  fill={sun.fill}
-                  stroke={sun.fill}
-                  strokeWidth={sun.strokeWidth || 1}
-                />
-              )}
-
-              {/* For designs with multiple paths (like rays) */}
-              {sun.paths &&
-                sun.paths.map((d, i) => (
+    <div>
+      {/* //   <h1 className="text-2xl font-bold text-amber-800 mb-6 text-center">
+    //     Sun & Star Loaders
+    //   </h1> */}
+      <div className="centered-div">
+        {sunDesigns
+          .filter((x) => x.id === "sun9")
+          .map((sun) => (
+            <div key={sun.id} className="flex items-center justify-center">
+              <svg
+                viewBox={sun.viewBox}
+                width="100"
+                height="100"
+                className="animate-spin-custom"
+                style={{
+                  animationDuration: sun.duration,
+                  animationTimingFunction: "linear",
+                  animationIterationCount: "infinite",
+                  animationDelay: "0s", // Ensure animation starts instantly
+                }}
+              >
+                {/* For sun designs with a single path */}
+                {sun.path && (
                   <path
-                    key={`${sun.id}-path-${i}`}
-                    d={d}
+                    d={sun.path}
+                    fill={sun.fill}
+                    stroke={sun.fill}
+                    strokeWidth={sun.strokeWidth || 1}
+                  />
+                )}
+
+                {/* For designs with multiple paths (like rays) */}
+                {sun.paths &&
+                  sun.paths.map((d, i) => (
+                    <path
+                      key={`${sun.id}-path-${i}`}
+                      d={d}
+                      fill="none"
+                      stroke={sun.fill}
+                      strokeWidth={sun.strokeWidth || 2}
+                      strokeLinecap="round"
+                    />
+                  ))}
+
+                {/* For designs with circles */}
+                {sun.outerCircle && (
+                  <circle
+                    cx={sun.outerCircle.cx}
+                    cy={sun.outerCircle.cy}
+                    r={sun.outerCircle.r}
                     fill="none"
                     stroke={sun.fill}
                     strokeWidth={sun.strokeWidth || 2}
-                    strokeLinecap="round"
                   />
-                ))}
+                )}
 
-              {/* For designs with circles */}
-              {sun.outerCircle && (
-                <circle
-                  cx={sun.outerCircle.cx}
-                  cy={sun.outerCircle.cy}
-                  r={sun.outerCircle.r}
-                  fill="none"
-                  stroke={sun.fill}
-                  strokeWidth={sun.strokeWidth || 2}
-                />
-              )}
+                {sun.innerCircle && (
+                  <circle
+                    cx={sun.innerCircle.cx}
+                    cy={sun.innerCircle.cy}
+                    r={sun.innerCircle.r}
+                    fill="none"
+                    stroke={sun.fill}
+                    strokeWidth={sun.strokeWidth || 2}
+                  />
+                )}
 
-              {sun.innerCircle && (
-                <circle
-                  cx={sun.innerCircle.cx}
-                  cy={sun.innerCircle.cy}
-                  r={sun.innerCircle.r}
-                  fill="none"
-                  stroke={sun.fill}
-                  strokeWidth={sun.strokeWidth || 2}
-                />
-              )}
-
-              {sun.centerCircle && (
-                <circle
-                  cx={sun.centerCircle.cx}
-                  cy={sun.centerCircle.cy}
-                  r={sun.centerCircle.r}
-                  fill={sun.fill}
-                />
-              )}
-            </svg>
-          </div>
-        ))}
+                {sun.centerCircle && (
+                  <circle
+                    cx={sun.centerCircle.cx}
+                    cy={sun.centerCircle.cy}
+                    r={sun.centerCircle.r}
+                    fill={sun.fill}
+                  />
+                )}
+              </svg>
+            </div>
+          ))}
       </div>
 
       {/* CSS for custom animation */}
